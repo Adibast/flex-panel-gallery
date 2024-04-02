@@ -1,0 +1,239 @@
+html {
+    box-sizing: border-box;
+    background: #ffc600;
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+  }
+@font-face {
+    font-family: Syntha;
+    src: url(resources/Syntha.ttf);
+}
+body {
+    margin: 0;
+    overflow: clip;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.panels {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    width: fit-content;
+    background: #6B0F9C;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    align-items: center;
+    transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+    font-size: 20px;
+    background-size: cover;
+    background-position: center;
+    transition: width 1s ease-in-out;
+}
+
+.panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s, translate 0.5s;
+}
+
+.panel p {
+    text-transform: uppercase;
+    font-family: 'Amatic SC', cursive;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 1em;
+}
+
+.panel p:nth-child(1) {
+    transform: translateY(-50vh);
+    transition: font-size 0.5s;
+    font-size: 3.8em;
+}
+
+.panel p:nth-child(2) {
+    font-size: 3.8em;
+}
+
+.panel p:nth-child(3) {
+    transform: translateY(50vh);
+    font-size: 3.8em;
+}
+
+.hide-top {
+    animation: hide-top-text 1s ease-in-out forwards;
+}
+
+.reveal-top {
+    animation: reveal-top-text 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+.widen {
+    animation: widen 1s ease-in-out forwards;
+}
+
+.contract {
+    animation: contract 1s ease-in-out forwards;
+}
+
+.credit {
+    position: fixed;
+    bottom: 1vh;
+    right: 1vw !important;
+    width: 5.7em;
+    height: 1em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.72);
+    border: 2px solid lightslategray;
+}
+
+.link {
+    font-family: Syntha;
+    font-size: 0.5em;
+    margin-top: 0.5em;
+}
+
+.refresh {
+    position: fixed;
+    bottom: 1vh;
+    left: 1vw;
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0.2em;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid lightslategray;
+}
+.icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    background-image: url(resources/refresh-icon-2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@keyframes hide-top-text {
+    0% {
+        transform: translateY(0);
+        font-size: 3.8em;
+    }
+    90% {
+        transform: translateY(0);
+        font-size: 2em
+    }
+    100% {
+        transform: translateY(-50vh);
+        font-size: 1em;
+    }
+}
+
+@keyframes reveal-top-text {
+    from {
+        transform: translateY(-50vh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoom-in-text {
+    0% {
+        font-size: 3.8em;
+    }
+    20% {
+        font-size: 3.2em;
+    }
+    100% {
+        font-size: 8.5em;
+    }
+}
+
+@keyframes zoom-out-text {
+    0% {
+        font-size: 8.5em;
+    }
+    20% {
+        font-size: 10em;
+    }
+    100% {
+        font-size: 3.8em;
+    }
+}
+
+@keyframes hide-bottom-text {
+    0% {
+        transform: translateY(0);
+        font-size: 3.8em;
+    }
+    90% {
+        transform: translateY(0);
+        font-size: 2em
+    }
+    100% {
+        transform: translateY(50vh);
+        font-size: 1em;
+    }
+}
+
+@keyframes reveal-bottom-text {
+    from {
+        transform: translateY(50vh)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+
+@keyframes widen {
+    0% {
+        width: 20%
+    }
+    10% {
+        width: 15%
+    }
+    50% {
+        width: 20%
+    }
+    90% {
+        width: 100%
+    }
+    100% {
+        width: 80%
+    }
+}
+
+@keyframes contract {
+    0% {
+        width: 80%
+    }
+    10% {
+        width: 100%
+    }
+    50% {
+        width: 20%
+    }
+    90% {
+        width: 15%
+    }
+    100% {
+        width: 20%
+    }
+}
